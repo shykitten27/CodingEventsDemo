@@ -27,6 +27,12 @@ namespace CodingEventsDemo.Data
             Events.Remove(id);
         }
 
+        // Edit
+        public static void Edit(int id)
+        {
+
+        }
+
         // GetById
         public static Event GetById(int id)
         {
