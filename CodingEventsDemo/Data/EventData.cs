@@ -34,7 +34,7 @@ namespace CodingEventsDemo.Data
         }
 
         // GetById
-        public static Event GetById(int id)
+        public static Event GetById(int id) 
         {
             return Events[id];
         }

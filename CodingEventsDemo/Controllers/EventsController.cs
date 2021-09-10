@@ -54,13 +54,12 @@ namespace coding_events_practice.Controllers
             return Redirect("/Events");
         }
 
-        [HttpPost]
-        [Route("/Events/Edit/")]
+        [HttpGet]
+        [Route("/Events/Edit/{eventId}")]
         public IActionResult Edit(int eventId)
         {
-            EventData.Edit(eventId);
-            //ViewBag.Title = "Edit Event Name (id=ID)";
-            ViewBag.eventToEdit = EventData.GetById(eventId);
+            Event evtId = EventData.GetById(eventId);
+            ViewBag.eventToEdit = evtId; //ViewBag now contain the entire Event (id, name, desc)
             return View();
         }
 
@@ -68,10 +67,10 @@ namespace coding_events_practice.Controllers
         [Route("/Events/Edit")]
         public IActionResult SubmitEditEventForm(int eventId, string name, string description)
         {
-/*            EventData.GetById(eventId);
-            Name = name;
-            Description = description;*/
-            return Redirect("/Events"); //???
+            Event evtId = EventData.GetById(eventId); //evtId is the actual Event type that contains id, name, desc
+            evtId.Name = name;
+            evtId.Description = description;
+            return Redirect("/Events"); 
         }
     }
 }
