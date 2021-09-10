@@ -9,12 +9,16 @@ namespace CodingEventsDemo.Models
         public int Id { get; }
         static private int nextId = 1;
 
-        public Event(string name, string description)
+        public Event() //no arg constructor - still need the nextId
+        {
+            Id = nextId;
+            nextId++;
+        }
+
+        public Event(string name, string description) : this() //constructor chaining of no arg constructor 
         {
             Name = name;
             Description = description;
-            Id = nextId;
-            nextId++;
         }
 
         public override string ToString()
