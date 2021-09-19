@@ -23,5 +23,8 @@ namespace CodingEventsDemo.ViewModels
 
         [EmailAddress]
         public string ContactEmail { get; set; }
+
+        //[Compare]
+        public string IsTrue { get; }
     }
 }

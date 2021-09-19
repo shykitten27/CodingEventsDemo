@@ -28,5 +28,13 @@
         <input asp-for="ContactEmail" />
         <span class="field-validation-error" asp-validation-for="ContactEmail"></span>
     </div>
+    <div class="form-group">
+        <label asp-for="IsTrue">Must register?</label>
+        <input type="checkbox" value="true" asp-for="IsTrue" />
+        <label for="true">true</label>
+@*        <input type="radio" value="false" asp-for="IsTrue" />
+        <label for="false">false</label><br>*@
+        <span class="field-validation-error" asp-validation-for="IsTrue"></span>
+    </div>
     <input type="submit" value="Add Event" />
 </form>
