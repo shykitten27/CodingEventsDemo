@@ -31,9 +31,6 @@
     <div class="form-group">
         <label asp-for="IsTrue">Must register?</label>
         <input type="checkbox" value="true" asp-for="MustRegister" />
-        <label for="true">true</label>
-@*        <input type="radio" value="false" asp-for="IsTrue" />
-        <label for="false">false</label><br>*@
         <span class="field-validation-error" asp-validation-for="IsTrue"></span>
     </div>
     <input type="submit" value="Add Event" />
