@@ -39,7 +39,8 @@ namespace coding_events_practice.Controllers
                     Description = addEventViewModel.Description,
                     Location = addEventViewModel.Location,
                     NumOfAttendees = addEventViewModel.NumOfAttendees,
-                    ContactEmail = addEventViewModel.ContactEmail
+                    ContactEmail = addEventViewModel.ContactEmail,
+                    RegistrationRequired = addEventViewModel.RegistrationRequired
                 };
 
                 EventData.Add(newEvent);

@@ -24,9 +24,9 @@ namespace CodingEventsDemo.ViewModels
         [EmailAddress]
         public string ContactEmail { get; set; }
 
-/*        public string MustRegister { get; set; }
+        public bool IsTrue { get { return true; } }
 
-        [Compare("MustRegister", ErrorMessage = "Must register must be checked.")]
-        public bool IsTrue { get; }*/
+        [Compare("IsTrue", ErrorMessage = "Registration required.")]
+        public bool RegistrationRequired { get; set; }
     }
 }
