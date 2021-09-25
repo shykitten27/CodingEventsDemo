@@ -37,6 +37,7 @@ namespace coding_events_practice.Controllers
                 {
                     Name = addEventViewModel.Name,
                     Description = addEventViewModel.Description,
+                    Type = addEventViewModel.Type,
                     Location = addEventViewModel.Location,
                     NumOfAttendees = addEventViewModel.NumOfAttendees,
                     ContactEmail = addEventViewModel.ContactEmail,

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CodingEventsDemo.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace CodingEventsDemo.ViewModels
@@ -12,6 +15,18 @@ namespace CodingEventsDemo.ViewModels
         [Required(ErrorMessage = "Description is required.")]
         [StringLength(500, ErrorMessage = "Description too long!")]
         public string Description { get; set; }
+
+        [Required(ErrorMessage = "Type is required.")]
+        public EventType Type { get; set; }
+
+        public List<SelectListItem> EventTypes { get; set; } = new List<SelectListItem>
+        {
+            new SelectListItem(EventType.Conference.ToString(), ((int)EventType.Conference).ToString()),
+            new SelectListItem(EventType.Meetup.ToString(), ((int)EventType.Meetup).ToString()),
+            new SelectListItem(EventType.Workshop.ToString(), ((int)EventType.Workshop).ToString()),
+            new SelectListItem(EventType.Social.ToString(), ((int)EventType.Social).ToString())
+        };
+        // <option value="0">Conference</option> first argument is text, second argument is value
 
         [Required(ErrorMessage = "Location is required.")]
         [StringLength(500, MinimumLength = 3, ErrorMessage = "Location must be between 3 and 500 characters.")]

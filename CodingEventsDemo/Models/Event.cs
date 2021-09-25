@@ -6,8 +6,8 @@ namespace CodingEventsDemo.Models
     public class Event
     {
         public string Name { get; set; }
-
         public string Description { get; set; }
+        public EventType Type { get; set; }
         public string ContactEmail { get; set; }
         public string Location { get; set; }
         public int NumOfAttendees { get; set; }
