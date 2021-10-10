@@ -13,16 +13,16 @@ namespace CodingEventsDemo.Models
 
         public EventType Type { get; set; }
 
-        public int Id { get; }
+        public int Id { get; set; } //setter needed for persistent data
         static private int nextId = 1;
 
         public Event()
         {
-            Id = nextId;
-            nextId++;
+/*            Id = nextId;
+            nextId++; */ //no longer needed for persistent data
         }
 
-        public Event(string name, string description, string contactEmail) : this()
+        public Event(string name, string description, string contactEmail) /*: this()*/ //no longer needed for persistent data
         {
             Name = name;
             Description = description;
