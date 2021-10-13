@@ -52,7 +52,7 @@ namespace CodingEventsDemo.Controllers
                 context.Categories.Add(newCategory);
                 context.SaveChanges();
 
-                return Redirect("EventCategory/Index");
+                return Redirect("Index");
             }
 
             return View("Create", addEventCategoryViewModel);
