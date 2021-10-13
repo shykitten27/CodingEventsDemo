@@ -1,4 +1,6 @@
 ﻿using System;
+using Microsoft.AspNetCore.Mvc;
+
 namespace CodingEventsDemo.Models
 {
     public class EventCategory
