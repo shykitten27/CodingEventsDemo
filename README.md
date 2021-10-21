@@ -19,3 +19,19 @@ ContactEmail
 
 One Person can attend many Events.
 Many Persons can attend many Events.
+
+
+GETTING STARTED:
+
+
+LEARNING RESOURCES:
+
+CLEAN CODE:
+
+MANUAL CODE REVIEW CHECKLIST:
+
+TESTING: (INCLUDE AUTOMATED)
+
+MANUAL TEST CHECKLIST:
+
+TECHNICAL FEATURES:
