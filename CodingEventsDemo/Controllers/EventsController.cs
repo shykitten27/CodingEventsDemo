@@ -12,9 +12,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace coding_events_practice.Controllers
 {
+    [Authorize]
     public class EventsController : Controller
     {
-
         private EventDbContext context;
 
         public EventsController(EventDbContext dbContext)
@@ -22,6 +22,7 @@ namespace coding_events_practice.Controllers
             context = dbContext;
         }
 
+        [AllowAnonymous]
         // GET: /<controller>/
         public IActionResult Index()
         {
