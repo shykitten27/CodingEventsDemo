@@ -83,5 +83,23 @@ namespace coding_events_practice.Controllers
 
             return Redirect("/Events");
         }
+        
+        // /Events/Detail/5 where 5 is the id of the event i.e. path parameter
+        public IActionResult Detail(int id)
+        {
+            Event theEvent = context.Events
+                .Include(e => e.Category)
+                .Single(e => e.Id == id);
+
+            //new collection of tags where only those returned from query
+            //meet the eventId and eager load the tags
+            List<EventTag> eventTags = context.EventTags
+                .Where(et => et.EventId == id)
+                .Include(et => et.Tag)
+                .ToList();
+
+            EventDetailViewModel viewModel = new EventDetailViewModel(theEvent, eventTags);
+            return View(viewModel);
+        }
     }
 }

@@ -55,6 +55,21 @@ namespace CodingEventsDemo.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("CodingEventsDemo.Models.EventTag", b =>
+                {
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagId")
+                        .HasColumnType("int");
+
+                    b.HasKey("EventId", "TagId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("EventTags");
+                });
+
             modelBuilder.Entity("CodingEventsDemo.Models.Tag", b =>
                 {
                     b.Property<int>("Id")
@@ -76,6 +91,21 @@ namespace CodingEventsDemo.Migrations
                     b.HasOne("CodingEventsDemo.Models.EventCategory", "Category")
                         .WithMany("events")
                         .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("CodingEventsDemo.Models.EventTag", b =>
+                {
+                    b.HasOne("CodingEventsDemo.Models.Event", "Event")
+                        .WithMany()
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CodingEventsDemo.Models.Tag", "Tag")
+                        .WithMany()
+                        .HasForeignKey("TagId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
