@@ -86,5 +86,18 @@ namespace CodingEventsDemo.Controllers
 
             return View(viewModel);
         }
+
+        public IActionResult Detail(int id)
+        {
+            //query all event tags where the id matches the event and eager fetch the Event and Tag data
+            //then convert to a list and return the view as event tags as the model object
+            List<EventTag> eventTags = context.EventTags
+                .Where(et => et.TagId == id)
+                .Include(et => et.Event)
+                .Include(et => et.Tag)
+                .ToList();
+
+            return View(eventTags);
+        }
     }
 }
