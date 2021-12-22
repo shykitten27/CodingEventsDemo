@@ -19,37 +19,30 @@ namespace CodingEventsDemo.ViewModels
         [EmailAddress]
         public string ContactEmail { get; set; }
 
-        public EventType Type { get; set; }
+        [Required(ErrorMessage = "Category is required")]
+        public int CategoryId { get; set; }
 
-        public List<SelectListItem> EventTypes { get; set; }
+        public List<SelectListItem> Categories { get; set; }
 
-        public AddEventViewModel()
+        //constructor takes a list of EventCategory
+        public AddEventViewModel(List<EventCategory> categories)
         {
-            EventTypes = new List<SelectListItem>();
-
-            EventTypes.Add(new SelectListItem
+            //create a new Categories listitem by looping thru all of the 
+            //categories and adding them to the collection
+            Categories = new List<SelectListItem>();
+            foreach (var category in categories)
             {
-                Value = EventType.CONFERENCE.ToString(),
-                Text = EventType.CONFERENCE.ToString()
-            });
-
-            EventTypes.Add(new SelectListItem
-            {
-                Value = EventType.MEETUP.ToString(),
-                Text = EventType.MEETUP.ToString()
-            });
-
-            EventTypes.Add(new SelectListItem
-            {
-                Value = EventType.SOCIAL.ToString(),
-                Text = EventType.SOCIAL.ToString()
-            });
-
-            EventTypes.Add(new SelectListItem
-            {
-                Value = EventType.WORKSHOP.ToString(),
-                Text = EventType.WORKSHOP.ToString()
-            });
+                Categories.Add(
+                    new SelectListItem
+                    {
+                        Value = category.Id.ToString(),
+                        Text = category.Name
+                    }    
+                ); ;
+            }
         }
+
+        public AddEventViewModel() { }
+
     }
 }

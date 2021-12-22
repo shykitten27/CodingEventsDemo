@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CodingEventsDemo.Models
@@ -8,6 +9,7 @@ namespace CodingEventsDemo.Models
         public string Name { get; set; }
 
         public int Id { get; set; }
+        public List<Event> events { get; set; }
 
         public EventCategory(string name)
         {

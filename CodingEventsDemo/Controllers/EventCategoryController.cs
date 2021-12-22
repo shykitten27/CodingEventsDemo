@@ -24,18 +24,15 @@ namespace CodingEventsDemo.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            ViewBag.title = "All Categories";
             List<EventCategory> categories = context.Categories.ToList();
             return View(categories);
         }
 
         // GET: /<controller>/
         [HttpGet]
-        [Route("EventCategory/Create")]
         public IActionResult Create()
         {
             AddEventCategoryViewModel addEventCategoryViewModel = new AddEventCategoryViewModel();
-
             return View(addEventCategoryViewModel);
         }
 
@@ -52,7 +49,7 @@ namespace CodingEventsDemo.Controllers
                 context.Categories.Add(newCategory);
                 context.SaveChanges();
 
-                return Redirect("Index");
+                return Redirect("/EventCategory");
             }
 
             return View("Create", addEventCategoryViewModel);
