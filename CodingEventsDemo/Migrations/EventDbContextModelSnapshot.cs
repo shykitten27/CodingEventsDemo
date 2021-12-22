@@ -55,6 +55,22 @@ namespace CodingEventsDemo.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("CodingEventsDemo.Models.Tag", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
+                        .HasMaxLength(50);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tags");
+                });
+
             modelBuilder.Entity("CodingEventsDemo.Models.Event", b =>
                 {
                     b.HasOne("CodingEventsDemo.Models.EventCategory", "Category")
